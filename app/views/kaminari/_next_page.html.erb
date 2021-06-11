@@ -1,0 +1,10 @@
+
+
+
+
+
+
+
+<li<% _temple_html_attributeremover1 = ''; _temple_html_attributemerger1 = []; _temple_html_attributemerger1[0] = "pagination-next"; _temple_html_attributemerger1[1] = (::Temple::Utils.escape_html(('disabled' if current_page.last?))).to_s; _temple_html_attributeremover1 << ((_temple_html_attributemerger1.reject(&:empty?).join(" ")).to_s); _temple_html_attributeremover1 %><% if !_temple_html_attributeremover1.empty? %> class="<%= _temple_html_attributeremover1 %>"<% end %>>
+<%= link_to_unless current_page.last?, t('views.pagination.next').html_safe, url, :rel => 'next', :remote => remote %>
+</li> 

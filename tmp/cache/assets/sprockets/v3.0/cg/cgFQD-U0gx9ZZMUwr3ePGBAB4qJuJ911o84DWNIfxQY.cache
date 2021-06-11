@@ -1,0 +1,5 @@
+I"B(function() {
+  this.App || (this.App = {});
+
+}).call(this);
+:ET

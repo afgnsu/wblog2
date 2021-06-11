@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="small-12 large-9 large-centered columns">
+    <%= form_for Comment.new, url: blog_comments_path(@post), remote: true do |f| %>
+      <div class="row">
+        <div class="small-12 large-12 columns">
+          <%= f.text_area :content, placeholder: t('comment_placeholder.content') %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 large-6 columns">
+          <%= f.text_field :name, value: cookies[:name], placeholder: t('comment_placeholder.name') %>
+          <%= f.text_field :email, value: cookies[:email], placeholder: t('comment_placeholder.email') %>
+      </div>
+    </div>
+
+    <button class="button comment-submit" type='submit' data-disable-with="<%= t('comment_placeholder.submitting') %>"><%= t('comment_placeholder.submit') %></button>
+
+    <div class="alert callout" id="alert-container">
+      <span class="text"></span>
+      <button class="close-button" type="button">
+        <span>&times;</span>
+      </button>
+    </div>
+  <% end %>
+
+  <%= render partial: 'comments/comment_content', locals: { comments: comments } %>
+
+  </div>
+</div>

@@ -1,0 +1,11 @@
+您評論過的日誌有新的回覆:
+
+評論人: <%= @comment.name %>
+
+評論內容: <%= @comment.content %>
+
+被評論日誌: <%= @comment.post.title %>
+
+訪問這裡回覆: <%= blog_url(@comment.post) %>
+
+退訂: <%= unsubscribes_url %>

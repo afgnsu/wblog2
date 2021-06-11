@@ -1,0 +1,27 @@
+<% if ENV['INTRODUCE'].present?
+content_for(:meta) do
+ %><meta content="<%= ENV['INTRODUCE'].dup.force_encoding('UTF-8') %>" name="description" />
+<% end; end; content_for(:title) do
+ %><%= t('title.home') %>
+<% end %><div class="row">
+<div class="small-12 large-10 columns">
+<% unless @newest
+ %><%= render 'common/no_blog_here' %>
+<% else
+ %><%= render partial: 'post_head', locals: { post: @newest } %>
+<div class="content markdown">
+<%= @newest.sub_content.html_safe %>
+
+<%= link_to t('home.read'), blog_path(@newest), class: 'read-more' %>
+<p class="published-at"><%= t('home.created_at') %> <%= format_time(@newest.created_at) %>
+</p>
+</div><% if @recent.present?
+ %><h4 class="recent-title"><%= t('home.recent') %></h4>
+<ul class="recent-content">
+<% @recent.each do |re|
+ %><li><%= link_to re.title,blog_path(re) %>
+
+</li><% end %></ul><% end; end %></div><div class="large-2 columns self-introduce self-introduce-index">
+
+<%= render 'common/welcome' %>
+</div></div>

@@ -1,0 +1,41 @@
+# This section MUST be configured
+SITE_NAME: "先傑網管日誌"
+# Admin Dashboard Management, If ADMIN_USER is blank, No One can login into Dashboard
+# Recommend using your personal Email, if SENDCLOUD_USER is setted, System WILL send you notification email.
+# For more detail, see: /app/models/comment.rb
+ADMIN_USER: 'admin'
+ADMIN_PASSWORD: '12345qwe'
+
+
+# Rails secret token, use `rake secret` to generate new one here.
+SECRET_TOKEN: '193e895175927897a12ffd1c008269597f22bd75922c5621c33f3135494f32f75c410a3cbc332ac3321d2b52833e17966bf7e2252a037b4b9b884abf0b47543d'
+
+#locale: en or zh-CN, zh-CN is default value
+LOCALE: 'zh-TW'
+
+# sidekiq redis namespace, if you configure two blog in on VPS, you should change it.
+# default is wblog
+REDIS_NAMESPACE: 'wblog'
+
+# META description for SEO
+INTRODUCE: '這是有關先傑電腦網管的工作日誌'
+
+#Website Address for footer display without http
+SITE_ADDRESS: '先傑電腦'
+#Website Year for footer display
+SITE_YEAR: '地址：嘉義縣中埔鄉中山路五段673號、電話：05-239-8001'
+#Website beian for footer display
+SITE_BEIAN: '@alltop.com.tw'
+
+# optional
+# google analytics, blank it if you don't need
+GOOGLE: ''
+
+# CDN ( optional )
+CDN: ''
+
+# Email Setting, see more: /config/environments/production.rb
+MAIL_SERVER: ''
+DOMAIN_NAME: ''
+MAIL_USERNAME: ''
+MAIL_PASSWORD: ''

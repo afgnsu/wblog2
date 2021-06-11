@@ -1,0 +1,120 @@
+zh-TW:
+  comment: "評論"
+  edit: '編輯'
+  destroy: '刪除'
+  announce_at: "發表於 "
+  qr_code: '二維碼'
+  visited_count: "瀏覽數 "
+  nocontent: "沒有新的內容"
+  prev: '← 上一篇'
+  next: '下一篇 →'
+  none: '無'
+  qrcodetips: '掃一掃繼續閱讀或者幫我分享至朋友圈'
+
+  views:
+    pagination:
+      previous: '上一頁'
+      next: '下一頁'
+
+  home:
+    no_blog_here: '這裡沒有日誌'
+    read: '閱讀全文 >>'
+    created_at: '發表於 '
+    recent: '近期日誌'
+
+  subscribes:
+    title: '訂閱我'
+    email: '郵件訂閱'
+    wechat: '微信掃一掃'
+    rss: 'RSS 訂閱'
+    submit: '送出'
+    submit_success: '訂閱成功'
+
+
+  head:
+    home: '首頁'
+    tech: '技術'
+    life: '生活'
+    creator: '創業'
+    timeline: '時間軸'
+    about: '關於我'
+    admin: '後台'
+
+  title:
+    home: '首頁'
+    timeline: '時間線'
+    about: '關於我'
+    admin: '後台'
+
+  comment_attributes:
+    email: '郵件地址錯誤'
+  comment_placeholder:
+    content: '發表你的評論...'
+    name: '姓名'
+    email: 'Email'
+    submit: '送出'
+    submitting: '傳送中'
+    publish_success: '發表成功'
+    publish_fail: '發表失敗'
+
+  archive:
+    search: '搜索日誌標題'
+
+  admin:
+    new_post: '新建日誌'
+    posts: '日誌管理'
+    posts_attributes:
+      title: '標題'
+      type: '分類'
+      labels: '標籤'
+      already_labels: '已有標籤: '
+      content: '正文'
+      preview: '預覽'
+      upload_photo: '上傳圖片'
+      submit: '送出'
+    posts_head:
+      title: '標題'
+      summary: '概要'
+      operation: '操作'
+
+    comments: '評論管理'
+    comments_head:
+      name: '名字'
+      email: '郵箱'
+      content: '內容'
+      created_at: '創建時間'
+      operation: '操作'
+      reply: '回復'
+      destroy: '刪除'
+
+    subscribes: '訂閱管理'
+    subscribes_head:
+      email: '郵箱'
+      enable: '是否啟用'
+      created_at: '創建時間'
+      operation: '操作'
+      op:
+        enable: '啟用'
+        disable: '禁用'
+
+    back: '返回首頁'
+    logout: '退出'
+    dashboard:
+      head: '系統資訊'
+      info: '資訊'
+      data: '數量'
+      posts_count: '文章數'
+      comments_count: '評論數'
+      visited_count: '瀏覽數'
+      subscribes_count: '訂閱數'
+    session:
+      title: '登錄後台'
+      username: '帳號'
+      username_placeholder: '帳號'
+      password: '密碼'
+      password_placeholder: '密碼'
+      login_button: '登錄'
+      login_success: '登錄成功'
+      no_configuration: '系統未配置管理帳號, 無法登錄！'
+      username_error: '帳號錯誤'
+      password_error: '密碼錯誤'

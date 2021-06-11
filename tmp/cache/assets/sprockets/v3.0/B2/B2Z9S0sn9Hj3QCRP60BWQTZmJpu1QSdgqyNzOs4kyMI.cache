@@ -1,0 +1,26 @@
+I""(function() {
+  $(document).on('turbolinks:load', function() {
+    var base;
+    $('#alert-container .close-button').click(function() {
+      return $('#alert-container').hide();
+    });
+    if ($('#blog-show-page').length > 0) {
+      (base = window.App).cable || (base.cable = ActionCable.createConsumer());
+      if (window.App.comment_channel) {
+        window.App.comment_channel.unsubscribe();
+      }
+      return window.App.comment_channel = window.App.cable.subscriptions.create({
+        channel: "CommentChannel",
+        post_id: $('#blog-show-page').data('post_id')
+      }, {
+        received: function(data) {
+          if (data['not'] !== Cookies.get('cable_id')) {
+            return $.get($('#blog-show-page').data('url'));
+          }
+        }
+      });
+    }
+  });
+
+}).call(this);
+:ET

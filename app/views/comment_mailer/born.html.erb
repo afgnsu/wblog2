@@ -1,0 +1,13 @@
+<p>
+您的日誌有新評論:
+</p><p>
+<span>來自:</span>
+<%= mail_to @comment.email, @comment.name %>
+</p><p>評論內容:</p>
+<pre>
+<%= @comment.content %>
+
+</pre><p>
+日誌連結:
+<%= link_to @comment.post.title, blog_url(@comment.post) %>
+</p>

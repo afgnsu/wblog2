@@ -1,0 +1,42 @@
+<% url = @post.new_record? ? admin_posts_path : admin_post_path(@post) %>
+
+<%= simple_form_for(@post, url: url, html: {novalidate: '' }) do |f| %>
+
+<div class="row">
+  <div class="large-6 columns">
+     <%= f.input :title, label: t('admin.posts_attributes.title'), input_html: { name: 'title' } %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 large-6 columns">
+    <%= label_tag :labels, t('admin.posts_attributes.labels') %>
+    <%= text_field_tag :labels, @post.labels_content(true) %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <p><%= t('admin.posts_attributes.already_labels').html_safe %>
+      <span>
+        <% Label.all.each do |label| %>
+          <a class="tag" href="#"><%= label.name %></a>
+        <% end %>
+      </span>
+    </p>
+  </div>
+</div>
+
+<div class="tabs-content" data-tabs-content="tabs">
+  <div class="tabs-panel content-field is-active" id="content">
+    <%= f.cktext_area :content, rows: 10, input_html: { name: 'content', id: 'content-input' } %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 large-6 columns posts-button">
+    <button class="button" type="submit"><%= t('admin.posts_attributes.submit') %></button>
+  </div>
+</div>
+
+<% end %>

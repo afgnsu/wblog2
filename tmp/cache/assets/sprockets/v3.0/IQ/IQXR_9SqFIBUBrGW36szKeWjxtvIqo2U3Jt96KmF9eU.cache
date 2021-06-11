@@ -1,0 +1,21 @@
+I"(function() {
+  $(document).on('turbolinks:load', function() {
+    if ($('.about-page').length > 0) {
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 0) {
+          return $('.top-bar-wrapper').addClass('active');
+        } else {
+          return $('.top-bar-wrapper').removeClass('active');
+        }
+      });
+      $('#about-top-bar').ddscrollSpy({
+        highlightclass: 'active'
+      });
+      return $('.intro').ddscrollSpy({
+        highlightclass: 'active'
+      });
+    }
+  });
+
+}).call(this);
+:ET

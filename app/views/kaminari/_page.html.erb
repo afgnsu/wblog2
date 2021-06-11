@@ -1,0 +1,11 @@
+
+
+
+
+
+
+
+
+<li class="page<%= ::Temple::Utils.escape_html((' current' if page.current?)) %>">
+<%= link_to_unless page.current?, page, url, {:remote => remote, :rel => page.rel} %>
+</li> 

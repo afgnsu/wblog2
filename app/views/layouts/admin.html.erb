@@ -1,0 +1,46 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Admin Page for <%= ENV['SITE_NAME'] %></title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="title-bar" data-hide-for="medium" data-responsive-toggle="example-menu">
+    <button class="menu-icon" data-toggle="" type="button"></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
+
+  <div class="top-bar" id="dashboard-topbar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li><%= link_to "後台 - #{ENV['SITE_NAME']}", admin_root_path %></li>
+        <li><%= link_to t('admin.new_post'), new_admin_post_path %></li>
+        <li><%= link_to t('admin.posts'), admin_posts_path %></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><%= link_to t('admin.back'), root_path %></li>
+        <% if admin_username %>
+          <li><%= link_to admin_username + ' [ ' + t('admin.logout') + ' ]', admin_session_path(1), method: 'DELETE' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, :class => 'callout success') %>
+  <% end %>
+
+  <div class="admin-main-field" ng-app="app">
+    <%= yield %>
+  </div>
+
+  <%= render "layouts/footer" %>
+
+</body>
+</html>

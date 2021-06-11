@@ -1,0 +1,18 @@
+I"þ(function() {
+  $(document).on('turbolinks:load', function() {
+    if ($('#qrcode-home').length > 0) {
+      $('#qrcode-home').empty();
+      new QRCode($('#qrcode-home')[0], $('#qrcode-home').data('url'));
+    }
+    if ($('#image-tag').length > 0) {
+      $('#image-tag').empty();
+      new QRCode($('#image-tag')[0], $('#image-tag').data('url'));
+    }
+    return $('#qrcode-link').click(function(event) {
+      event.preventDefault();
+      return $('.social-share').toggle();
+    });
+  });
+
+}).call(this);
+:ET

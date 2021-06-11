@@ -1,0 +1,13 @@
+<div class="row" ng-controller="AdminSessionsController">
+<div class="small-12 large-8 columns">
+<h3 class="blog-title"><%= t('admin.session.title') %></h3>
+<% _slim_controls1 = form_tag admin_sessions_path do
+ %><div class="row">
+<div class="small-12 large-8 columns">
+<%= label_tag 'username', t('admin.session.username') %>
+<%= text_field_tag 'username', params[:username], placeholder: t('admin.session.username_placeholder') %>
+<%= label_tag 'username', t('admin.session.password') %>
+<%= password_field_tag 'password', params[:password], placeholder: t('admin.session.password_placeholder') %>
+
+</div></div><button class="button" type="submit"><%= t('admin.session.login_button') %></button>
+<% end %><%= _slim_controls1 %></div></div>

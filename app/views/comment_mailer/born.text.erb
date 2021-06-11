@@ -1,0 +1,9 @@
+您的日誌有新評論:
+
+來自: <%= @comment.name %> <<%= @comment.email %>>
+
+評論內容: <%= @comment.content %>
+
+日誌標題: <%= @comment.post.title %>
+
+日誌連結: <%= blog_url(@comment.post) %>

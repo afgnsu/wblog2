@@ -1,0 +1,29 @@
+<%= render partial: 'post_head', locals: { post: post } %>
+
+<div class="content markdown">
+  <%= post.content_html.html_safe %>
+</div>
+
+<p class="ptag published-at">
+  <%= t('announce_at') %>
+  <span>
+    <%= format_time(post.created_at) %>
+  </span>
+</p>
+
+<%= render 'common/copyright' %>
+
+<hr class="blog-over" />
+<p>
+  <button class="button like-button" data-url="<%= blog_likes_path(post) %>" type="button">
+<span class="count"><%= @likes_count %></span>
+<span>Like</span>
+</button><div class="qrcode">
+<a href="#" id="qrcode-link">
+<i class="fi-link">
+</i><%= t('qr_code') %>
+
+</a></div><div class="social-share">
+<div class="qrcode-wrapper">
+<%= render partial: "qrcode", locals: { str: blog_url(post) } %>
+</div></div></p>

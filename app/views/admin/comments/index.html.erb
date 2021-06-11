@@ -1,0 +1,28 @@
+<div class="row admin-posts-field">
+<div class="small-12 columns">
+<h3 class="blog-title"><%= t('admin.comments') %></h3>
+<h4 class="blog-title">
+<%= link_to @post.title, blog_path(@post), target: '_blank' %>
+</h4><table width="100%">
+<thead>
+<tr>
+<th><%= t('admin.comments_head.name') %></th>
+<th><%= t('admin.comments_head.email') %></th>
+<th><%= t('admin.comments_head.content') %></th>
+<th><%= t('admin.comments_head.created_at') %></th>
+<th><%= t('admin.comments_head.operation') %></th>
+</tr></thead><tbody>
+<% @comments.each do |comment|
+ %><tr>
+<td><%= comment.name %></td>
+<td>
+<%= mail_to comment.email %>
+</td><td>
+<%= simple_format(comment.content) %>
+</td><td>
+<%= format_time(comment.created_at) %>
+
+</td><td>
+<%= link_to t('admin.comments_head.reply'), blog_path(@post), target: '_blank', class: 'edit-post-link' %>
+<%= link_to t('admin.comments_head.destroy'), admin_post_comment_path(@post, comment), method: 'DELETE', 'data-confirm'=> '確認刪除?' %>
+</td></tr><% end %></tbody></table></div></div>

@@ -1,0 +1,12 @@
+<p>您評論的日誌有新的回覆:</p>
+<p>評論人: <%= ::Temple::Utils.escape_html((@comment.name)) %></p>
+<p>評論內容:</p>
+<pre><%= @comment.content %></pre>
+<p>
+被評論日誌:
+<%= link_to @comment.post.title, blog_url(@comment.post) %>
+</p><hr />
+<p>
+退訂:
+<%= link_to unsubscribes_url, unsubscribes_url %>
+</p>

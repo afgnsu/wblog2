@@ -1,0 +1,14 @@
+<div class="comment-diag">
+  <% comments.each do |comment| %>
+    <div class="comment-wrapper">
+      <p class="name">
+        <%= comment.name %>
+        <%= "  • " %>
+        <span class="created-at">
+          <%= format_time(comment.created_at) %>
+        </span>
+      </p>
+      <%= render partial: 'comments/comment_pre', locals: { comment: comment } %>
+    </div>
+  <% end %>
+</div>

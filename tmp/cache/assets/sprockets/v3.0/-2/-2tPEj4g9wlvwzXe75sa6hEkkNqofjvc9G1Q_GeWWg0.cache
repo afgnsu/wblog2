@@ -1,0 +1,33 @@
+I"«(function() {
+  $(document).on('turbolinks:load', function() {
+    return $('.like-button').click(function() {
+      if ($(this).hasClass('liked')) {
+        return $.ajax({
+          url: $(this).data('url') + '/' + Cookies.get('like'),
+          type: 'DELETE',
+          success: (function(_this) {
+            return function(res) {
+              $(_this).removeClass('liked');
+              $(_this).children('.count').text(res.count);
+              return Cookies.remove('like');
+            };
+          })(this)
+        });
+      } else {
+        return $.ajax({
+          url: $(this).data('url'),
+          type: 'POST',
+          success: (function(_this) {
+            return function(res) {
+              $(_this).addClass('liked');
+              $(_this).children('.count').text(res.count);
+              return Cookies.set('like', res.id);
+            };
+          })(this)
+        });
+      }
+    });
+  });
+
+}).call(this);
+:ET

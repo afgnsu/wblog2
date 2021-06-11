@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport" />
+<% if content_for?(:meta) %>
+  <%= yield(:meta) %>
+<% end %>
+<title>
+  <%= content_for?(:title) ? yield(:title) + " | #{ENV['SITE_NAME']}" : ENV['SITE_NAME'] %>
+</title>
+<%= stylesheet_link_tag "application", 'data-turbolinks-track' => "reload" %>
+<%= favicon_link_tag 'favicon.png', type: 'image/png' %>
+<%= javascript_include_tag "application", 'data-turbolinks-track' => "reload", 'defer' => true %>
+<%= javascript_include_tag Ckeditor.cdn_url %>
+<%= csrf_meta_tags %>
+<%= action_cable_meta_tag %>
+</head>
+
+<body data-whatinput="mouse">
+
+  <% if content_for?(:main) %>
+
+    <%= yield(:main) %>
+
+  <% else %>
+
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+        <div class="off-canvas position-left" data-off-canvas="" id="offCanvas">
+          <ul class="vertical menu">
+            <li><label>Menu</label></li>
+            <li><%= link_to "<i class='fi-home'></i>#{t('head.home')}", root_path %></li>
+            <li><%= link_to "<i class='fi-align-justify'></i>#{t('head.timeline')}", archives_path %></li>
+            <li><%= link_to "<i class='fi-torso'></i>#{t('head.admin')}", admin_root_path%></li>
+          </ul>
+        </div>
+
+        <div class="off-canvas-content" data-off-canvas-content="">
+          <div class="title-bar hide-for-medium my-topbar">
+            <div class="title-bar-left">
+              <button class="menu-icon" data-open="offCanvas" type="button"></button>
+              <span class="title-bar-title"><%= link_to ENV['SITE_NAME'], root_path %></span>
+            </div>
+          </div>
+
+          <div class="top-bar show-for-medium my-topbar">
+            <div class="top-bar-left">
+              <ul class="dropdown menu" data-dropdown-menu="">
+                <li><%= link_to ENV['SITE_NAME'], root_path, class: 'title' %></li>
+              </ul>
+            </div>
+            <div class="top-bar-right">
+              <ul class="dropdown menu" data-dropdown-menu="">
+                <li><%= link_to t('head.home'), root_path %></li>
+                <li><%= link_to t('head.timeline'), archives_path %></li>
+                <li><%= link_to t('head.admin'), admin_root_path %></li>
+                <li><%= link_to "<span><i class='fi-magnifying-glass'></i></span>".html_safe, archives_path %></li>
+              </ul>
+            </div>
+          </div>
+
+          <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, :class => 'callout success') %>
+          <% end %>
+
+          <%= render 'common/welcome_new_year' %>
+
+        <%= yield %>
+
+        <%= render "layouts/footer" %>
+
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+</body>
+</html>
